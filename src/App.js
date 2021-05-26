@@ -1,12 +1,14 @@
-import React from 'react';
+// Add Fragment
+import React, { Fragment } from 'react';
 
 function App() {
   return (
-    <div className="App">
+    // Create Fragment
+    <Fragment>
       
       <h1>Weather App React</h1>
     
-    </div>
+    </Fragment>
   );
 }
 
