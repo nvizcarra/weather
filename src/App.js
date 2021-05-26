@@ -1,12 +1,16 @@
 // Add Fragment
 import React, { Fragment } from 'react';
+// Import Header
+import Header from './components/Header';
 
 function App() {
   return (
     // Create Fragment
     <Fragment>
       
-      <h1>Weather App React</h1>
+      <Header
+        title='Weather App React'
+      />
     
     </Fragment>
   );
