@@ -4,6 +4,8 @@ import React, { Fragment, useState, useEffect } from 'react';
 import Header from './components/Header';
 // Import form
 import Form from './components/Form';
+// import weather
+import Weather from './components/Weather';
 
 function App() {
 
@@ -15,8 +17,11 @@ function App() {
 
   const [query, saveQuery] = useState(false);
 
+  // Create a third state
+  const [outcome, saveOutcome] = useState({});
+
   // Extract city and country from search
-  const { city, country} = search;
+  const { city, country } = search;
   // Add useEffect
   useEffect(() => {
       const queryAPI = async () => {
@@ -28,7 +33,9 @@ function App() {
           const answer = await fetch(url);
           const outcome = await answer.json();
   
-          console.log(outcome);
+          saveOutcome(outcome);
+
+          saveQuery(false);
         }
       }
       queryAPI();
@@ -55,7 +62,9 @@ function App() {
                 />
               </div>
               <div className="col m6 s12">
-                2
+                <Weather
+
+                />
               </div>
             </div>
           </div>

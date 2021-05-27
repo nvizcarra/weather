@@ -24,7 +24,7 @@ const Form = ({search, saveSearch, saveQuery }) => {
         // Validation
         if(city.trim() === '' || country.trim() === '') {
             saveError(true);
-            return
+            return;
         }
 
         saveError(false);
