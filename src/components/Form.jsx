@@ -19,6 +19,13 @@ const Form = () => {
                     id="country"
                 >
                         <option value="">-- Select a country --</option>
+                        <option value="US">Estados Unidos</option>
+                        <option value="MX">México</option>
+                        <option value="AR">Argentina</option>
+                        <option value="CO">Colombia</option>
+                        <option value="CR">Costa Rica</option>
+                        <option value="ES">España</option>
+                        <option value="PE">Perú</option>
 
                 </select>
                 <label htmlFor="country">Country: </label>
