@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
+import Error from './Error';
 
 // Extract search and saveSearch from main component
 const Form = ({search, saveSearch, saveQuery }) => {
 
-   const [ error, saveError ] = useState(false)
+   const [ error, saveError ] = useState(false);
 
     // Extract city and country
     const { city, country } = search;
@@ -38,7 +39,7 @@ const Form = ({search, saveSearch, saveQuery }) => {
         <form
             onSubmit={handleSubmit}
         >
-            {error ? <p className="red darken-4 error">Complete all fields</p> : null}
+            {error ? <Error mensaje="Ambos campos son obligatorios" /> : null }
             <div className="input-field col s12">
                 <input 
                     type="text"

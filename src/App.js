@@ -6,6 +6,8 @@ import Header from './components/Header';
 import Form from './components/Form';
 // import weather
 import Weather from './components/Weather';
+// Import error
+import Error from './components/Error';
 
 function App() {
 
@@ -19,6 +21,9 @@ function App() {
 
   // Create a third state
   const [outcome, saveOutcome] = useState({});
+
+  // Creat a fourth state
+  const [error, saveError] = useState(false);
 
   // Extract city and country from search
   const { city, country } = search;
@@ -36,11 +41,26 @@ function App() {
           saveOutcome(outcome);
 
           saveQuery(false);
+
+          // Detect if there are succesful results after the query
+          if(outcome.cod === "404") {
+            saveError(true);
+          } else {
+            saveError(false);
+          }
         }
       }
       queryAPI();
   }, [query]); 
-
+  
+  let component;
+  if(error) {
+    component = <Error mensaje="No results" />
+  } else {
+    component = <Weather
+                    outcome={outcome}
+                />
+  }
 
   return (
     // Create Fragment
@@ -62,9 +82,7 @@ function App() {
                 />
               </div>
               <div className="col m6 s12">
-                <Weather
-
-                />
+                  {component}
               </div>
             </div>
           </div>

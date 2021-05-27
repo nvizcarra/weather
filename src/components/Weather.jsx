@@ -13,15 +13,15 @@ const Weather = ({outcome}) => {
     return (
         <div className="card-panel white col s12">
             <div className="black-text">
-                <h1>{name} weather: </h1>
+                <h2>{name} weather: </h2>
                 <p className="temperature">
-                    { parseFloat (main.temp - kelvin, 10).toFloat(2) } <span> &#x2103;</span>
+                    { parseFloat (main.temp - kelvin, 10).toFixed(2) } <span> &#x2103;</span>
                 </p>
                 <p>Maximum:
-                    { parseFloat (main.temp_max - kelvin, 10).toFloat(2) } <span> &#x2103;</span>
+                    { parseFloat (main.temp_max - kelvin, 10).toFixed(2) } <span> &#x2103;</span>
                 </p>
                 <p>Minimum:
-                    { parseFloat (main.temp_min - kelvin, 10).toFloat(2) } <span> &#x2103;</span>
+                    { parseFloat (main.temp_min - kelvin, 10).toFixed(2) } <span> &#x2103;</span>
                 </p>
             </div>
         </div>
