@@ -8,6 +8,8 @@ const Form = () => {
         country: ''
     })
 
+    const [ error, saveError ] = useState(false)
+
     // Extract city and country
     const { city, country } = search;
 
@@ -20,9 +22,27 @@ const Form = () => {
         });
     }
 
+    // When user submits form
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        // Validation
+        if(city.trim() === '' || country.trim() === '') {
+            saveError(true);
+            return
+        }
+
+        saveError(false);
+
+        // Send it to the main component
+    }
+
     return (
 
-        <form>
+        <form
+            onSubmit={handleSubmit}
+        >
+            {error ? <p className="red darken-4 error">Complete all fields</p> : null}
             <div className="input-field col s12">
                 <input 
                     type="text"
@@ -53,6 +73,15 @@ const Form = () => {
                 </select>
                 <label htmlFor="country">Country: </label>
             </div>
+
+            <div className="input-field col s12">
+                <input 
+                    type="submit"
+                    value="Search weather"
+                    className="waves-effect waves-light btn-large btn-block yellow accent-4"
+                    />
+            </div>
+
         </form>
     );
 }
