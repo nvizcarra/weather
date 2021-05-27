@@ -1,14 +1,9 @@
 import React, {useState} from 'react';
 
-const Form = () => {
+// Extract search and saveSearch from main component
+const Form = ({search, saveSearch, saveQuery }) => {
 
-    // Form state
-    const [search, saveSearch] = useState ({
-        city: '',
-        country: ''
-    })
-
-    const [ error, saveError ] = useState(false)
+   const [ error, saveError ] = useState(false)
 
     // Extract city and country
     const { city, country } = search;
@@ -35,6 +30,7 @@ const Form = () => {
         saveError(false);
 
         // Send it to the main component
+        saveQuery(true);
     }
 
     return (
